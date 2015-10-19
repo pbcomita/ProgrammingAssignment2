@@ -4,7 +4,7 @@
 ## This function will  creates a special "matrix" object that can cache its 
 ## inverse, which is an inverted matrix from the 
 ## function 'Solve()'. If there is no inverted matrix, the matrix object
-## will return with a NULL matrix 
+## will return with a NULL vector 
 ## the function is defined for a matrix that has an inverse
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## this function cacheSolve Will return a matrix 'invmat' that this the inverse of the matrix 
-## 'xmat' using the R-supplied function 'solve()'. The supplied matrix 'xmat' is 
+## 'mat' using the R-supplied function 'solve()'. The matrix 'mat' is 
 ## assumed to be invertible
 
 cacheSolve <- function(x, ...) {
