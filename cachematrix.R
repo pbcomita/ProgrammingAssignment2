@@ -23,8 +23,8 @@ makeCacheMatrix <- function(x = matrix()) {
              getinv = getinv)
 }
 
-## this function cacheSolve Will return a matrix 'invmat' that this the inverse of the matrix 
-## 'mat' using the R-supplied function 'solve()'. The matrix 'mat' is 
+## this function cacheSolve will return a matrix 'mat' that is the inverse of the input matrix 
+## using the R-supplied function 'solve()'. The matrix 'mat' is 
 ## assumed to be invertible
 
 cacheSolve <- function(x, ...) {
