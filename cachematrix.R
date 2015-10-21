@@ -3,7 +3,7 @@
 
 ## This function will  creates a special "matrix" object that can cache its 
 ## inverse, which is an inverted matrix from the 
-## function 'Solve()'. If there is no inverted matrix, the matrix object
+## function 'Solve()'. If there is no cached inverted matrix, the matrix object
 ## will return with a NULL vector 
 ## the function is defined for a matrix that has an inverse
 
@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
         getinv <- function() mat
         list(set = set, get = get,
              setinv = setinv,
-             getinv = getinv)
+             getinv = getinv)             ##create a list to hold the function return values
 }
 
 ## this function cacheSolve will return a matrix 'mat' that is the inverse of the input matrix 
@@ -29,16 +29,16 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-        ## first check to see if the inverse of 'x' has already been calculated
+        ## first check to see if the inverse of 'x' has already been calculated and cached
         ##
         mat <- x$getinv()
         if(!is.null(mat)) {
-                message("getting cached inverse matrix")
-                return(mat)                              ##returns previous inverse matrix
+                message("getting cached inverse matrix") ##lets user know it is cached
+                return(mat)                              ##returns cached inverse matrix
         }
         ## otherwise calculate the inverted matrix and return it as mat
         newdata <- x$get()
         mat <- solve(a = newdata)
-        x$setinv(mat)
+        x$setinv(mat)              
         mat
 }
